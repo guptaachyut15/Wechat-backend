@@ -17,7 +17,7 @@ const app = express();
 // const users = {};
 
 app.get("/", (req, res) => {
-  res.end("On the backend page for chat app,go back!");
+  res.json({ msg: "On the backend page for chat app,go back!" });
 });
 
 // io.on("connection", (socket) => {
