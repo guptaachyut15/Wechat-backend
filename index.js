@@ -1,10 +1,10 @@
 const express = require("express");
 const http = require("http");
 const app = express();
-const server = http.createServer(app);
-const { CORS_ORIGINS } = require("./config");
+// const server = http.createServer(app);
+// const { CORS_ORIGINS } = require("./config");
 
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
 // const allowedOrigins = CORS_ORIGINS.split(",");
 // const io = new Server(server, {
 //   cors: {
@@ -39,6 +39,9 @@ app.get("/", (req, res) => {
 //   });
 // });
 
-server.listen(8080, () => {
+// server.listen(8080, () => {
+//   console.log(`Listening on port 8080`);
+// });
+app.listen(8080, () => {
   console.log(`Listening on port 8080`);
 });
