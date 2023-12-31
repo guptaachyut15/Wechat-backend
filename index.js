@@ -18,6 +18,7 @@ const users = {};
 
 io.on("connection", (socket) => {
   socket.on("user-joined", (name) => {
+    console.log(`${name} joined`);
     users[socket.id] = name;
     socket.broadcast.emit("user-joined", name);
   });
@@ -33,6 +34,9 @@ io.on("connection", (socket) => {
   });
 });
 
+app.get("/", () => {
+  console.log("On the backend page for chat app,go back!");
+});
 server.listen(8080, () => {
   console.log(`Listening on port 8080`);
 });
