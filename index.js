@@ -2,9 +2,10 @@ const express = require("express");
 const http = require("http");
 const app = express();
 const server = http.createServer(app);
+const { CORS_ORIGINS } = require("./config");
 
 const { Server } = require("socket.io");
-const allowedOrigins = ["http://127.0.0.1:5500", "http://localhost:5500"];
+const allowedOrigins = CORS_ORIGINS.split(",");
 const io = new Server(server, {
   cors: {
     origin: allowedOrigins,
