@@ -6,6 +6,7 @@ const { CORS_ORIGINS } = require("./config");
 
 const { Server } = require("socket.io");
 const allowedOrigins = CORS_ORIGINS.split(",");
+console.log("allowed origins:", allowedOrigins);
 const io = new Server(server, {
   cors: {
     origin: allowedOrigins,
