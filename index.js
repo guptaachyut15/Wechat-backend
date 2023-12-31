@@ -16,6 +16,10 @@ const io = new Server(server, {
 
 const users = {};
 
+app.get("/", (req, res) => {
+  res.end("On the backend page for chat app,go back!");
+});
+
 io.on("connection", (socket) => {
   socket.on("user-joined", (name) => {
     console.log(`${name} joined`);
@@ -24,6 +28,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send", (msg) => {
+    console.log(`${users[socket.id]} messaged`);
     socket.broadcast.emit("send", { name: users[socket.id], msg: msg });
   });
 
@@ -34,9 +39,6 @@ io.on("connection", (socket) => {
   });
 });
 
-app.get("/", () => {
-  console.log("On the backend page for chat app,go back!");
-});
 server.listen(8080, () => {
   console.log(`Listening on port 8080`);
 });
