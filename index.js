@@ -16,7 +16,7 @@ const io = new Server(server, {
 
 const users = {};
 
-app.get("/", (req, res) => {
+server.get("/", (req, res) => {
   res.end("On the backend page for chat app,go back!");
 });
 
